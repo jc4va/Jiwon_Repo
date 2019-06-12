@@ -1,0 +1,8 @@
+  
+  Name: Jiwon Cha
+  ID: jc4va
+  Date: 08/29/2017
+  Name of the file: TestLifeCycle.cpp
+
+1. I don’t really understand the use of -> in cpp. Can you explain this in detail?
+2. For the second line of the main function, why would you use *l instead of l? 

@@ -1,0 +1,9 @@
+
+  Name: Jiwon Cha
+  ID: jc4va
+  Date: 08/29/2017
+  Name of the file: TestLifeCycle.cpp
+ 
+1. When compiling .cpp and test file, does UNIX automatically take into account the existence of .h file?
+
+2. If I have ‘using namespace std’ in the header file, do I need to include it again in .cpp files?

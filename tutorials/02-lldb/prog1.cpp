@@ -7,6 +7,7 @@ void my_subroutine() {
 
 int main() {
     int x = 4;
+    cout << x << endl;
     int *p = NULL;
     my_subroutine();
     *p = 3;

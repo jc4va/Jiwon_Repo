@@ -1,4 +1,8 @@
 // Add your header information here
+// Name: Jiwon Cha
+// Computing ID: jc4va
+// Date: 10/09/2017
+// File name: TreeCalc.h
 // TreeCalc.h: Tree Calculator class definition
 // CS 2150: Lab 5
 // NOTE: You may use any stack implementation that you wish
@@ -11,6 +15,8 @@
 // include your stack implementation here
 
 #include "TreeNode.h"
+#include <stack>
+#include <string>
 using namespace std;
 
 class TreeCalc {
@@ -33,7 +39,7 @@ public:
 private:
     // declare a stack to hold your expression tree
     int calculate(TreeNode* ptr) const;		//Evaluates tree, returns value
-
+    stack<TreeNode*> mystack;
 };
 
 #endif

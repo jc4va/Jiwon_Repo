@@ -1,0 +1,9 @@
+/*
+	Name: Jiwon Cha
+	ID: jc4va
+	Date: 09/11/2017
+	Name of the file: unix.questions
+*/
+
+1. I don’t understand the notion of list users 
+2. What exactly does ‘redirect’ mean

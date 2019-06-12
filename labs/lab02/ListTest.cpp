@@ -1,3 +1,10 @@
+/*
+  Name: Jiwon Cha
+  ID: jc4va
+  Date: 09/07/2017
+  Name of the file: ListTest.cpp
+ */
+
 //	Modified: 8/30/2006: mc2zk
 //  CS216 Lab 1 - Test Harness
 //   by Michael Crane

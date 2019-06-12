@@ -1,3 +1,8 @@
+/*
+	Name: Jiwon Cha
+	ID: jc4va
+*/
+
 #include "peppers.h"
 
 Peppers::Peppers() {

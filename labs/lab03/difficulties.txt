@@ -1,0 +1,8 @@
+/*
+	Name: Jiwon Cha
+	ID: jc4va
+	Date: 09/13/2017
+	Name of the file: difficulties.txt
+*/
+
+ I believe that the implementations were not very difficult, but because I am not used to C++, it was difficult to make everything work in synchronization. For example, I was very confused by referencing pointers in the constructors rather than a stack variable. Also, I kept getting ‘linker error 86x architecture’ and ‘segmentation fault:11’ and I was very confused. I went to office hours and the TAs helped me to fix my code. 

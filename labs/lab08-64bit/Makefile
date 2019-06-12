@@ -1,8 +1,13 @@
+# Name: Jiwon Cha
+# ID: jc4va
+# File: Makefile
+# Date: 10/30/17
+
 # Makefile for CS 2150 pre-lab 8
 # This Makefile shows how to link assembly with C/C++
 
 # Defines the C++ compiler we'll be using
-CXX	= clang++ -m64
+CXX	= clang++
 
 # Defines the flags we'll be passing to the C++ compiler
 CXXFLAGS	= -Wall -g
@@ -11,10 +16,10 @@ CXXFLAGS	= -Wall -g
 AS	= nasm
 
 # Defines the flags for the assembler
-ASFLAGS	= -f elf64 -g
+ASFLAGS	= -f macho64 -g
 
 # All of the .o files for our program
-OFILES	= vecsum.o main.o
+OFILES	= mathlib.o mathfun.o
 
 # This tells make to create a .o file from a .cpp file, using the
 # defaults above (i.e. the CXX and CXXFLAGS macros)

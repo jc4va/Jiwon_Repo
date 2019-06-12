@@ -1,0 +1,5 @@
+// Jiwon Cha (jc4va)
+// lab 12 
+// 12/05/17
+
+I believe that some of the labs were too time consuming and literally impossible to do them alone because we were asked to perfectly understand something we've never seen before. For example, learning Bash Shell or Makefile + implementing the entire hash table + the entire word puzzle were pretty overwhelming. Also, I went to office hours almost everyday and it usually took me around 2 hours for a TA to come and see me. Therefore, I started going to office hours very early (around 5:20 even though it starts at 6). I believe that there should be more TAs, and maybe have something like a private tutoring session like we did in CS2110. 

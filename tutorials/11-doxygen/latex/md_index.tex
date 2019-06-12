@@ -1,0 +1,105 @@
+Computes the average of the two passed values.
+\begin{DoxyItemize}
+\item 
+\end{DoxyItemize}
+
+\href{../index.html}{\tt Go up to the Tutorials table of contents page}
+
+A Mac OS X note\+: doxygen on a Mac is very hard to install and configure. It will likely be easier to run doxygen through Virtual\+Box. But see the very last paragraph of this lab for Mac-\/specific details.
+
+Note that the current version of doxygen, as of the writing of this lab (released June 2015, and current as of late 2015), is 1.\+8.\+10. The version currently installing on Ubuntu Linux (both in the lab and on Virtual Box) may be a different version. These differences should not make any difference for the tags we are using.
+
+A note about line numbers\+: the line numbers shown throughout this document are for Doxygen version 1.\+8.\+6 (not the most recent version!); to find out what version you have installed, run {\ttfamily doxygen -\/v}. If it is a different version, then the line numbers will likely change, although they should be somewhat similar.
+
+\subsubsection*{Getting Started}
+
+When writing large amounts of code, it is important to document it, both for your understanding later, as well as for other people\textquotesingle{}s understanding (such as the graders). So far, all of our documentation has been via regular comments. However, there exist a number of documentation tools that allow us to do a lot more with our comments. Consider the Java S\+DK source code. If you look at the code itself, there are a lot of comments with special \char`\"{}tags\char`\"{} in the source code. A tag is a special command that denotes the comment is about some specific aspect, such as the parameter type or return value. The source code is then run through a program called javadoc (which comes with the Java S\+DK), and the full online H\+T\+ML documentation pages that we are familiar with are then created.
+
+Javadoc is great for Java code, but does not work for C++ code. Thus, we are going to use a program called doxygen, which works on a dozen different languages, including C++. The homepage for doxygen is \href{http://www.doxygen.org}{\tt here}. A function might be commented as follows. Note that, like Javadoc, the doxygen comments come {\itshape before} the code block to be documented.
+
+
+\begin{DoxyCode}
+/** * This function computes the average using the standard accepted
+ * formula for doing so.
+ * @return The average of the two passed values.
+ * @param x The first value to average.
+ * @param y The second value to average.
+ * \(\backslash\)xrefitem todo 1.
+
+double average (double x, double y) \{
+  return (x+y)/2.0;
+\}
+\end{DoxyCode}
+
+
+This is much more documentation than is probably necessary for the {\ttfamily average()} function, but the point is to show the functionality of doxygen. Note that five of the lines have tags, such as {\ttfamily @return}, which means that the following comment is specifically about the return value. Some tags, such as the {\ttfamily @param} tag, require a parameter.
+
+Save the above code as a file called \href{average.cpp.html}{\tt average.\+cpp} (\href{average.cpp}{\tt src}). There is also a {\ttfamily main()} function in that file that reads in two doubles, calls {\ttfamily average()}, and prints out the result; that function is not commented.
+
+\subsubsection*{Creating a Doxyfile}
+
+We need to tell doxygen what files to process, and a large number of other options. These are all kept in a file called {\ttfamily Doxyfile}. To generate that file, run {\ttfamily doxygen -\/g} (the {\ttfamily -\/g} means \char`\"{}generate\char`\"{}). Make sure you run this from the same directory that your average.\+cpp file is in! This will create a Doxyfile with the default options. We will need to edit it to set a few things. The line numbers provided are for version 1.\+8.\+6 of Doxygen; if you are using a different version, then your line numbers may vary.
+
+
+\begin{DoxyItemize}
+\item The {\ttfamily I\+N\+P\+UT} option (line 746)\+: put \char`\"{}average.\+cpp\char`\"{} as the input (put it, without the quotes, after the equals sign). This tells Doxygen which files to process.
+\item The {\ttfamily G\+E\+N\+E\+R\+A\+T\+E\+\_\+\+L\+A\+T\+EX} option (line 1,543)\+: change \char`\"{}\+Y\+E\+S\char`\"{} to \char`\"{}\+N\+O\char`\"{}. We want H\+T\+ML output (which is already set to yes), but we don\textquotesingle{}t want La\+TeX output.
+\item The {\ttfamily E\+X\+T\+R\+A\+C\+T\+\_\+\+A\+LL} option (line 401)\+: set to \char`\"{}\+Y\+E\+S\char`\"{}. This will cause Doxygen to create documentation for {\itshape all} the members in our file, including our {\ttfamily average()} function.
+\item The {\ttfamily P\+A\+P\+E\+R\+\_\+\+T\+Y\+PE} option (line 1,586)\+: set to \char`\"{}letter\char`\"{}. We don\textquotesingle{}t use A4 paper size.
+\item The {\ttfamily G\+E\+N\+E\+R\+A\+T\+E\+\_\+\+R\+TF} option (line 1,690)\+: set to \char`\"{}\+Y\+E\+S\char`\"{}. This will generate a rich text format (rtf) version of the documentation, which we can load into our favorite word processor.
+\item The {\ttfamily O\+U\+T\+P\+U\+T\+\_\+\+D\+I\+R\+E\+C\+T\+O\+RY} option (line 61)\+: set to \char`\"{}doc/\char`\"{}. This will cause all the created files to be in the doc/ sub-\/directory, and this is {\itshape necessary} for us to find your files.
+\item The {\ttfamily P\+R\+O\+J\+E\+C\+T\+\_\+\+N\+A\+ME} option (line 35)\+: set to \char`\"{}\+P\+D\+R Lab 11\char`\"{}; note that this is the only option (of the ones we are seeing here) that {\itshape should} have double quotes around it. This creates the appropriate title for the created documentation.
+\item You may want to set the {\ttfamily Q\+U\+I\+ET} option (line 686) to \char`\"{}\+Y\+E\+S\char`\"{}
+\end{DoxyItemize}
+
+\subsubsection*{Running Doxygen}
+
+We run doxygen via the {\ttfamily doxygen} command -- no command line parameters are needed (assuming the {\ttfamily Doxyfile} file is in the same directory, which it is in this case). The configuration file you created above produces documentation in two forms -- H\+T\+ML and R\+TF. With a modification to the configuration file (which we won\textquotesingle{}t see here), it can produce documentation in other formats as well (La\+TeX, man pages, X\+ML, etc.).
+
+R\+TF (rich text format) is a file type that can be loaded up into your favorite word processing program. Once you have run doxygen, the comments are formatted into a file called {\ttfamily doc/rtf/refman.\+rtf} -- try loading up that file. Note that a number of the fields in the file (such as \char`\"{}\+Title\char`\"{} and \char`\"{}\+Author\char`\"{}) are not yet filled in -- this is addressed below. If you were to print the documentation, such as a programming reference, then you might use this format.
+
+The other version, and the one we are going to look at, is the H\+T\+ML documentation. This is the most convenient for viewing online. After you run doxygen, these files are in the {\ttfamily doc/html} directory -- view the {\ttfamily doc/html/index.\+html} file. If you look at the documentation for this function (from the main page, follow the \char`\"{}\+Files\char`\"{} link on the title bar, and then the \char`\"{}average.\+cpp\char`\"{} link), you will see what is below. Note that there is more to that page than this image; what is below just shows the extracted documentation for {\ttfamily average()}.
+
+
+
+Do you see how the tags are separated into the different parts of this comment block?
+
+\subsubsection*{Call Graphs}
+
+Doxygen can create call graphs for your code. We are going to change three options to \char`\"{}\+Y\+E\+S\char`\"{}\+: {\ttfamily H\+A\+V\+E\+\_\+\+D\+OT} (line 2,052), {\ttfamily C\+A\+L\+L\+\_\+\+G\+R\+A\+PH} (line 2,168), and {\ttfamily C\+A\+L\+L\+E\+R\+\_\+\+G\+R\+A\+PH} (line 2,179). The first one turns on graph creation (\char`\"{}dot\char`\"{} is the command-\/line for the graphviz package); the second and third turn on specific types of graphs.
+
+Now, run {\ttfamily doxygen} again, and view the page describe above (the one that shows the contents of average.\+cpp). You will see a few new graphs added. Keep in mind that, as the input source code (average.\+cpp) was rather small, these graphs are not going to be particularly all that large, either.
+
+The first graph is a dependency graph\+:
+
+
+
+This shows what the average.\+cpp file depends on. Specifically, this is what {\ttfamily \#include} lines it has, which is only iostream in this case.
+
+The second graph is a callee graph for {\ttfamily average()}\+:
+
+
+
+This shows that functions and methods call {\ttfamily average()} -- in this case, it\textquotesingle{}s only {\ttfamily main()}.
+
+The third graph is a caller graph for {\ttfamily main()}\+:
+
+
+
+This shows the functions that {\ttfamily main()} calls -- in this case, it\textquotesingle{}s only {\ttfamily average()}.
+
+As the source code gets larger, so do the graphs. In fact, there is a maximum limit as to how big the graphs are. Specifically, the {\ttfamily D\+O\+T\+\_\+\+G\+R\+A\+P\+H\+\_\+\+M\+A\+X\+\_\+\+N\+O\+D\+ES} option in the Doxyfile (initial value of 50) limits how many nodes can be represented in a single graph. In all the three examples shown above, there are only two nodes. After you start getting toward 100 nodes, the graph starts becoming too large to see on a screen, and it\textquotesingle{}s utility as a visualization tool is lost.
+
+\subsubsection*{Continuing Onward}
+
+To create the documentation for your code (beyond the average.\+cpp provided), you will need to create the {\ttfamily Doxyfile} file through the process described above. Note that it\textquotesingle{}s a text file, even though it does not have a .txt extension -- thus, Emacs is a good editor to use to edit the file. We won\textquotesingle{}t get into most of the details of the file. Be sure to edit the options mentioned above. Other fields will allow you to specify such things as the title, author, etc. (these are the things that were missing in the R\+TF file).
+
+Next, look at the doxygen manual. You can view it in P\+DF form, but you will first have to download that file (start \href{http://www.stack.nl/~dimitri/doxygen/download.html#dlmanual}{\tt here}). Otherwise, you can view the \href{http://www.stack.nl/~dimitri/doxygen/manual/index.html}{\tt online H\+T\+ML manual} -- not surprisingly, this manual was created in Doxygen. Start with the \href{http://www.stack.nl/~dimitri/doxygen/manual/docblocks.html}{\tt \char`\"{}\+Documenting the code\char`\"{} chapter}, as the previous chapters were covered by the description above.
+
+\subsubsection*{Important Notes}
+
+Private members are not documented in Doxygen by default. To change this (i.\+e. to document private members), you will want to change the {\ttfamily E\+X\+T\+R\+A\+C\+T\+\_\+\+P\+R\+I\+V\+A\+TE} flag in Doxyfile to {\ttfamily Y\+ES}.
+
+You may have to include all of your comments in your .h file. Whether you have to do this depends on how you structure your code and the code comments. If you are making changes to your doxygen comments and are not seeing the results, try moving them to the .h file. As long as the documentation is created when {\ttfamily doxygen} is run, we don\textquotesingle{}t really care where your doxygen comments are in your source code.
+
+To get doxygen working on the Mac, you will have to copy two binaries in /\+Applications/\+Doxgyen.app/\+Contents/\+Resources/ (or similar) to /usr/bin if you want to run it via the Makefile. Alternatively, if you have \href{http://brew.sh/}{\tt homebrew} installed on your Mac, you can brew install doxygen from the command line with the command found \href{http://brewformulas.org/Doxygen}{\tt here}. 

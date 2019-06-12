@@ -1,4 +1,8 @@
 // TreeCalcTest.cpp
+// Name: Jiwon Cha
+// Computing ID: jc4va
+// Date: 10/09/2017
+// File name: TreeCalcTest.cpp
 // CS 2150: Tree calculator test program
 // Your code MUST work with this test program
 // We will be using this program to test your implementations

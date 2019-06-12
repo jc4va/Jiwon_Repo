@@ -1,0 +1,63 @@
+C011 000 	jmp	start	skip around the variables
+0040 001 A	dw	0	A
+0000 002 k	dw	0	int k
+0005 003 max	dw	5	int max
+0000 004 i	dw	0	int i
+0004 005 j	dw	4	int j
+0001 006 one	dw	1	one
+0000 007 zero	dw	0	zero
+3000 008 ldit	dw	0	load
+0000 009 hold	dw	0	A[j] hold			 
+4000 00A store	dw	0	store
+0000 00B hold	dw	0	A[j-1] hold
+0000 00C n	dw	0	int n
+0000 00D
+0000 00E
+0000 00F
+0000 010
+3003 011 loop	load	max	for loop (i)
+6004 012 	sub	i	
+E039 013	jmpl			
+D039 014	jmpe		
+3005 015 loop	load	j	for loop (j)
+6004 016 	sub	i
+E032 017	jmpl
+D032 018	jmpe
+3008 019	load	ldit	add a[j]
+5001 01A	add	a
+5005 01B	add	j
+401F 01C	store	a[j]	
+6006 01D	sub	1	a[j-1]
+4021 01E	store	a[j-1]
+0000 01F	dw	a[j]	hold
+4002 020	store	k = a[j]
+0000 021	dw	a[j-1] hold
+400C 022	store	n = a[j-1]
+3002 023	load	k	k - n
+600C 024	sub	n
+E027 025	jmpl
+C02E 026	jmp
+300A 027	load		a[j]=n
+5001 028	add		a
+5005 029	add		j
+6006 02A	sub	1
+402D 02B  	store
+300C 02C	load
+0000 02D	dw
+3005 02E xit   	load	j	j--
+6006 02F	sub	one
+4005 030	store	j
+C015 031	jmp
+3004 032 xit	load	i	i++
+5006 033	add	one
+4004 034	store	i
+3003 035	load	max	get max - 1 	
+6006 036	sub	one
+4005 037	store	j
+C011 038	jmp
+0000 039	halt
+0003 040	dw	a[0]
+0001 041	dw	a[1]
+0006 042	dw	a[2]
+0007 043	dw	a[3]
+0002 044	dw	a[4]

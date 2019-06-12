@@ -1,0 +1,12 @@
+
+  Name: Jiwon Cha
+  ID: jc4va
+  Date: 08/29/2017
+  Name of the file: TestLifeCycle.cpp
+
+1. Does everything in cpp file have to be functions that are directly related to the class in the header file? 
+   For example, for lifecycle, does every function in lifecycle.cpp need to be                MyObject::something, and we include other functions that are not directly under the header file, for example cmpMyObj, in TestLifeCycle?
+
+2. Is the relationship between lifecycle.cpp and lifecycle.h similar to that of interface in java?
+
+3. I don’t really understand the prototype

@@ -76,12 +76,14 @@ int AvlTree::card_of( ) const {
 
 void AvlTree::insert( const string & x ) {
     insert( x, root );
+    num_nodes++;
 }
 
 /**
 * Remove x from the tree. Nothing is done if x is not found.
 */
 void AvlTree::remove( const string & x ) {
+  num_nodes--;
     cout << "Sorry, remove unimplemented; " << x <<
          " still present" << endl;
 }
@@ -157,11 +159,22 @@ double AvlTree::exp_path_length( )
 */
 {
     // YOUR CODE HERE
-    return -99.0;  // stub, remove after writing your code
+    return ((double)int_path_length(root,0)/num_nodes);  // stub, remove after writing your code
 }
 
 int AvlTree::int_path_length(AvlNode *t, int depth) {
-    return 0; // put your actual return value here when you write this function
+    if (t->left==NULL && t->right==NULL){
+        return depth;
+    }
+    else if (t->left && t->right) {
+        return (depth + (int_path_length(t->left,depth+1) + int_path_length(t->right,depth+1)));
+    }
+    else if (t->left){
+        return (depth + int_path_length(t->left,depth+1));
+    }
+    else if (t->right){
+        return (depth + int_path_length(t->right,depth+1));
+    }
 }
 
 /**
@@ -185,8 +198,10 @@ void AvlTree::insert( const string & x, AvlNode * & t ) const {
         if ( height( t->left ) - height( t->right ) == 2 ) {
             if ( x < t->left->element ) {
                 rotateWithLeftChild( t );
+                SingleRotations++;
             } else {
                 doubleWithLeftChild( t );
+                DoubleRotations++;
             }
         }
     } else if ( t->element < x ) {
@@ -194,8 +209,10 @@ void AvlTree::insert( const string & x, AvlNode * & t ) const {
         if ( height( t->right ) - height( t->left ) == 2 ) {
             if ( t->right->element < x ) {
                 rotateWithRightChild( t );
+                SingleRotations++;
             } else {
                 doubleWithRightChild( t );
+                DoubleRotations++;
             }
         }
     } else
@@ -240,8 +257,10 @@ AvlTree::find( const string & x, AvlNode *t ) const {
     while ( t != NULL )
         if ( x < t->element ) {
             t = t->left;
+            LeftLinksFollowed++;
         } else if ( t->element < x ) {
             t = t->right;
+            RightLinksFollowed++;
         } else
             return t;    // Match
     return NULL;   // No match

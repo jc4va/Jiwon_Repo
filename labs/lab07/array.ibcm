@@ -1,0 +1,38 @@
+C010 000	jmp	start    skip around the variables
+0009 001 a[]    dw	0	 int a[] (array address)
+0000 002 m	dw	0	 int m (maximum)
+0000 003 i	dw	0	 int i
+0000 004 s	dw	0	 int j
+0004 005 n	dw	0	 int n (array size)
+0001 006 one	dw	1
+5000 007 adit	dw	5000
+0000 008 zero	dw	0	 		
+0002 009	dw	0	 a[0]
+0001 00A	dw	0	 a[1]
+0007 00B	dw	0	 a[2]
+0004 00C	dw	0	 a[3]
+0000 00D			 leave spaces for changes
+0000 00E
+0000 00F
+3005 010	load	start	 size - i
+6003 011	sub	
+E023 012	jmpl	xit	 inappropriate size
+D023 013	jmpe	xit	 inappropriate size
+3007 014	load	adit	 form instructions to add a[i]
+5001 015	add	a
+5003 016	add	i	
+4018 017	store	doit	 plant the instruction into the program
+0000 018	dw	doit	 
+4004 019	store	doit	 s = a[i]
+6002 01A	sub	m	 a[i] - m
+E01F 01B	jmpl	
+D01F 01C	jmpe
+3004 01D	load	s
+4002 01E	store	m
+3003 01F	load	i
+5006 020        add     1
+4003 021        store   i
+C010 022        jmp     start
+3002 023        load    max      Load m
+1800 024        printH		 Display result
+0000 025	halt

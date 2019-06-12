@@ -1,0 +1,20 @@
+C007 000	jmp	start     skip around the variables
+0013 001 l	dw	0	  int l (length of the program)
+0000 002 i	dw	0	  int i = 0 (position in the code)
+0001 003 one	dw	1	  1
+0000 004 zero	dw	0	  0
+3000 005 ldit	load	0	  load command
+4000 006 stit	store	0	  store command 
+3001 007 load	l	start	  if (i > l)?
+6002 008 sub	i	
+E013 009 jmpl		xit
+3005 00A load	ldit		  Create instructions to store i (each line)	
+5002 00B add	i
+400D 00C store	i	
+0000 00D dw	
+1800 00E printH		
+3002 00F load	i		  Increment i (loop)
+5003 010 add	one
+4002 011 store	i
+C007 012 jmp	loop		  Restart loop
+0000 013 halt

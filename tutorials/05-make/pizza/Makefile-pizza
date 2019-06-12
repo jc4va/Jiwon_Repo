@@ -1,0 +1,20 @@
+# Name: Jiwon Cha 
+# ID: jc4va
+# Date: 10/09/2017
+# File: Makefile-pizza
+
+CXX=clang++ $(CXXFLAGS)
+CXXFLAGS=-Wall -O2
+
+OFILES = cheese.o mushrooms.o pepperoni.o peppers.o pizza.o pizzadough.o tomatosauce.o toppings.o 
+
+.SUFFIXES: .o .cpp
+
+pizza: $(OFILES)
+       $(CXX) $(DEBUG) $(OFILES) -o pizza
+       @echo "Pizza is Hot and Ready!"
+
+clean: 
+	-rm -f *.o *~ pizza
+
+

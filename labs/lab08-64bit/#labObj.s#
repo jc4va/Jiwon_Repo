@@ -1,0 +1,324 @@
+	.section	__TEXT,__text,regular,pure_instructions
+	.macosx_version_min 10, 12
+	.intel_syntax noprefix
+	.globl	_main
+	.p2align	4, 0x90
+_main:                                  ## @main
+Lfunc_begin0:
+	.cfi_startproc
+	.cfi_personality 155, ___gxx_personality_v0
+	.cfi_lsda 16, Lexception0
+## BB#0:
+	sub	rsp, 152
+Ltmp14:
+	.cfi_def_cfa_offset 160
+	mov	dword ptr [rsp + 120], 300
+	mov	dword ptr [rsp + 124], 1075000115
+	lea	rax, [rsp + 64]
+	mov	rdi, rax
+	mov	qword ptr [rsp + 40], rax ## 8-byte Spill
+	call	__ZN6personC1Ev
+	mov	rax, qword ptr [rsp + 40] ## 8-byte Reload
+	mov	qword ptr [rsp + 144], rax
+	lea	rdi, [rip + L_.str]
+	mov	qword ptr [rsp + 136], rdi
+	mov	rcx, qword ptr [rsp + 144]
+Ltmp0:
+	mov	qword ptr [rsp + 32], rdi ## 8-byte Spill
+	mov	rdi, rcx
+	mov	rsi, qword ptr [rsp + 32] ## 8-byte Reload
+	call	__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6assignEPKc
+Ltmp1:
+	mov	qword ptr [rsp + 24], rax ## 8-byte Spill
+1	jmp	LBB0_1
+LBB0_1:
+	jmp	LBB0_2
+LBB0_2:
+	mov	byte ptr [rsp + 88], 66
+	mov	al, byte ptr [rsp + 128]
+	mov	byte ptr [rsp + 100], al
+	mov	rcx, qword ptr [rsp + 120]
+	mov	qword ptr [rsp + 92], rcx
+	mov	dword ptr [rsp + 104], 1126649037
+Ltmp2:
+	lea	rdi, [rsp + 64]
+	mov	esi, 20
+	call	__ZN6person6setAgeEi
+Ltmp3:
+	jmp	LBB0_3
+LBB0_3:
+Ltmp4:
+	lea	rdi, [rsp + 64]
+	xor	esi, esi
+	call	__ZN6person10setMarriedEb
+Ltmp5:
+	jmp	LBB0_4
+LBB0_4:
+Ltmp6:
+	lea	rdi, [rsp + 64]
+	call	__ZN6person6getAgeEv
+Ltmp7:
+	mov	dword ptr [rsp + 20], eax ## 4-byte Spill
+	jmp	LBB0_5
+LBB0_5:
+Ltmp8:
+	lea	rdi, [rsp + 64]
+	call	__ZN6person10getMarriedEv
+Ltmp9:
+	mov	byte ptr [rsp + 19], al ## 1-byte Spill
+	jmp	LBB0_6
+LBB0_6:
+	lea	rdi, [rsp + 64]
+	call	__ZN6personD1Ev
+	xor	eax, eax
+	add	rsp, 152
+	ret
+LBB0_7:
+Ltmp10:
+	mov	ecx, edx
+	mov	qword ptr [rsp + 56], rax
+	mov	dword ptr [rsp + 52], ecx
+Ltmp11:
+	lea	rdi, [rsp + 64]
+	call	__ZN6personD1Ev
+Ltmp12:
+	jmp	LBB0_8
+LBB0_8:
+	jmp	LBB0_9
+LBB0_9:
+	mov	rdi, qword ptr [rsp + 56]
+	call	__Unwind_Resume
+LBB0_10:
+Ltmp13:
+	mov	ecx, edx
+	mov	rdi, rax
+	mov	dword ptr [rsp + 12], ecx ## 4-byte Spill
+	call	___clang_call_terminate
+Lfunc_end0:
+	.cfi_endproc
+	.section	__TEXT,__gcc_except_tab
+	.p2align	2
+GCC_except_table0:
+Lexception0:
+	.byte	255                     ## @LPStart Encoding = omit
+	.byte	155                     ## @TType Encoding = indirect pcrel sdata4
+	.byte	73                      ## @TType base offset
+	.byte	3                       ## Call site Encoding = udata4
+	.byte	65                      ## Call site table length
+Lset0 = Lfunc_begin0-Lfunc_begin0       ## >> Call Site 1 <<
+	.long	Lset0
+Lset1 = Ltmp0-Lfunc_begin0              ##   Call between Lfunc_begin0 and Ltmp0
+	.long	Lset1
+	.long	0                       ##     has no landing pad
+	.byte	0                       ##   On action: cleanup
+Lset2 = Ltmp0-Lfunc_begin0              ## >> Call Site 2 <<
+	.long	Lset2
+Lset3 = Ltmp9-Ltmp0                     ##   Call between Ltmp0 and Ltmp9
+	.long	Lset3
+Lset4 = Ltmp10-Lfunc_begin0             ##     jumps to Ltmp10
+	.long	Lset4
+	.byte	0                       ##   On action: cleanup
+Lset5 = Ltmp9-Lfunc_begin0              ## >> Call Site 3 <<
+	.long	Lset5
+Lset6 = Ltmp11-Ltmp9                    ##   Call between Ltmp9 and Ltmp11
+	.long	Lset6
+	.long	0                       ##     has no landing pad
+	.byte	0                       ##   On action: cleanup
+Lset7 = Ltmp11-Lfunc_begin0             ## >> Call Site 4 <<
+	.long	Lset7
+Lset8 = Ltmp12-Ltmp11                   ##   Call between Ltmp11 and Ltmp12
+	.long	Lset8
+Lset9 = Ltmp13-Lfunc_begin0             ##     jumps to Ltmp13
+	.long	Lset9
+	.byte	1                       ##   On action: 1
+Lset10 = Ltmp12-Lfunc_begin0            ## >> Call Site 5 <<
+	.long	Lset10
+Lset11 = Lfunc_end0-Ltmp12              ##   Call between Ltmp12 and Lfunc_end0
+	.long	Lset11
+	.long	0                       ##     has no landing pad
+	.byte	0                       ##   On action: cleanup
+	.byte	1                       ## >> Action Record 1 <<
+                                        ##   Catch TypeInfo 1
+	.byte	0                       ##   No further actions
+                                        ## >> Catch TypeInfos <<
+	.long	0                       ## TypeInfo 1
+	.p2align	2
+
+	.section	__TEXT,__text,regular,pure_instructions
+	.globl	__ZN6personC1Ev
+	.weak_def_can_be_hidden	__ZN6personC1Ev
+	.p2align	4, 0x90
+__ZN6personC1Ev:                        ## @_ZN6personC1Ev
+	.cfi_startproc
+## BB#0:
+	push	rax
+Ltmp15:
+	.cfi_def_cfa_offset 16
+	mov	qword ptr [rsp], rdi
+	mov	rdi, qword ptr [rsp]
+	call	__ZN6personC2Ev
+	pop	rax
+	ret
+	.cfi_endproc
+
+	.globl	__ZN6person6setAgeEi
+	.weak_definition	__ZN6person6setAgeEi
+	.p2align	4, 0x90
+__ZN6person6setAgeEi:                   ## @_ZN6person6setAgeEi
+	.cfi_startproc
+## BB#0:
+	mov	qword ptr [rsp - 8], rdi
+	mov	dword ptr [rsp - 12], esi
+	mov	rdi, qword ptr [rsp - 8]
+	mov	esi, dword ptr [rsp - 12]
+	mov	dword ptr [rdi + 44], esi
+	ret
+	.cfi_endproc
+
+	.globl	__ZN6person10setMarriedEb
+	.weak_definition	__ZN6person10setMarriedEb
+	.p2align	4, 0x90
+__ZN6person10setMarriedEb:              ## @_ZN6person10setMarriedEb
+	.cfi_startproc
+## BB#0:
+	mov	al, sil
+	mov	qword ptr [rsp - 8], rdi
+	and	al, 1
+	mov	byte ptr [rsp - 9], al
+	mov	rdi, qword ptr [rsp - 8]
+	mov	al, byte ptr [rsp - 9]
+	and	al, 1
+	mov	byte ptr [rdi + 48], al
+	ret
+	.cfi_endproc
+
+	.globl	__ZN6person6getAgeEv
+	.weak_definition	__ZN6person6getAgeEv
+	.p2align	4, 0x90
+__ZN6person6getAgeEv:                   ## @_ZN6person6getAgeEv
+	.cfi_startproc
+## BB#0:
+	mov	qword ptr [rsp - 8], rdi
+	mov	rdi, qword ptr [rsp - 8]
+	mov	eax, dword ptr [rdi + 44]
+	ret
+	.cfi_endproc
+
+	.globl	__ZN6person10getMarriedEv
+	.weak_definition	__ZN6person10getMarriedEv
+	.p2align	4, 0x90
+__ZN6person10getMarriedEv:              ## @_ZN6person10getMarriedEv
+	.cfi_startproc
+## BB#0:
+	mov	qword ptr [rsp - 8], rdi
+	mov	rdi, qword ptr [rsp - 8]
+	mov	al, byte ptr [rdi + 48]
+	and	al, 1
+	movzx	eax, al
+	ret
+	.cfi_endproc
+
+	.globl	__ZN6personD1Ev
+	.weak_def_can_be_hidden	__ZN6personD1Ev
+	.p2align	4, 0x90
+__ZN6personD1Ev:                        ## @_ZN6personD1Ev
+	.cfi_startproc
+## BB#0:
+	push	rax
+Ltmp16:
+	.cfi_def_cfa_offset 16
+	mov	qword ptr [rsp], rdi
+	mov	rdi, qword ptr [rsp]
+	call	__ZN6personD2Ev
+	pop	rax
+	ret
+	.cfi_endproc
+
+	.private_extern	___clang_call_terminate
+	.globl	___clang_call_terminate
+	.weak_definition	___clang_call_terminate
+	.p2align	4, 0x90
+___clang_call_terminate:                ## @__clang_call_terminate
+## BB#0:
+	push	rax
+	call	___cxa_begin_catch
+	mov	qword ptr [rsp], rax    ## 8-byte Spill
+	call	__ZSt9terminatev
+
+	.globl	__ZN6personC2Ev
+	.weak_def_can_be_hidden	__ZN6personC2Ev
+	.p2align	4, 0x90
+__ZN6personC2Ev:                        ## @_ZN6personC2Ev
+	.cfi_startproc
+## BB#0:
+	sub	rsp, 104
+Ltmp17:
+	.cfi_def_cfa_offset 112
+	xor	esi, esi
+	mov	eax, 24
+	mov	edx, eax
+	mov	qword ptr [rsp + 8], rdi
+	mov	rdi, qword ptr [rsp + 8]
+	mov	qword ptr [rsp + 16], rdi
+	mov	rdi, qword ptr [rsp + 16]
+	mov	qword ptr [rsp + 24], rdi
+	mov	rdi, qword ptr [rsp + 24]
+	mov	qword ptr [rsp + 32], rdi
+	mov	rcx, qword ptr [rsp + 32]
+	mov	qword ptr [rsp + 40], rcx
+	mov	rcx, qword ptr [rsp + 40]
+	mov	qword ptr [rsp + 48], rcx
+	mov	rcx, qword ptr [rsp + 48]
+	mov	r8, rcx
+	mov	qword ptr [rsp + 56], r8
+	mov	qword ptr [rsp], rdi    ## 8-byte Spill
+	mov	rdi, rcx
+	call	_memset
+	mov	rcx, qword ptr [rsp]    ## 8-byte Reload
+	mov	qword ptr [rsp + 80], rcx
+	mov	rdx, qword ptr [rsp + 80]
+	mov	qword ptr [rsp + 88], rdx
+	mov	rdx, qword ptr [rsp + 88]
+	mov	qword ptr [rsp + 96], rdx
+	mov	rdx, qword ptr [rsp + 96]
+	mov	qword ptr [rsp + 72], rdx
+	mov	dword ptr [rsp + 68], 0
+LBB8_1:                                 ## =>This Inner Loop Header: Depth=1
+	cmp	dword ptr [rsp + 68], 3
+	jae	LBB8_3
+## BB#2:                                ##   in Loop: Header=BB8_1 Depth=1
+	mov	eax, dword ptr [rsp + 68]
+	mov	ecx, eax
+	mov	rdx, qword ptr [rsp + 72]
+	mov	qword ptr [rdx + 8*rcx], 0
+	mov	eax, dword ptr [rsp + 68]
+	add	eax, 1
+	mov	dword ptr [rsp + 68], eax
+	jmp	LBB8_1
+LBB8_3:
+	add	rsp, 104
+	ret
+	.cfi_endproc
+
+	.globl	__ZN6personD2Ev
+	.weak_def_can_be_hidden	__ZN6personD2Ev
+	.p2align	4, 0x90
+__ZN6personD2Ev:                        ## @_ZN6personD2Ev
+	.cfi_startproc
+## BB#0:
+	push	rax
+Ltmp18:
+	.cfi_def_cfa_offset 16
+	mov	qword ptr [rsp], rdi
+	mov	rdi, qword ptr [rsp]
+	call	__ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev
+	pop	rax
+	ret
+	.cfi_endproc
+
+	.section	__TEXT,__cstring,cstring_literals
+L_.str:                                 ## @.str
+	.asciz	"Jiwon"
+
+
+.subsections_via_symbols

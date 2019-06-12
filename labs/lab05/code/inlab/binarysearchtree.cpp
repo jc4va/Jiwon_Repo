@@ -39,6 +39,7 @@ BinarySearchTree::~BinarySearchTree( ) {
 
 void BinarySearchTree::insert( const string & x ) {
     insert( x, root );
+    num_nodes++;
 }
 
 /**
@@ -46,6 +47,7 @@ void BinarySearchTree::insert( const string & x ) {
 */
 void BinarySearchTree::remove( const string & x ) {
     remove( x, root );
+    num_nodes--;
 }
 
 /**
@@ -80,12 +82,23 @@ double BinarySearchTree::exp_path_length( )
 */
 {
     // YOUR CODE HERE
-    return -99.0;  // stub, remove after writing your code
+    return ((double)int_path_length(root,0)/num_nodes);  // stub, remove after writing your code
 }
 
 int BinarySearchTree::int_path_length(BinaryNode *t, int depth) {
-    // Your code here
-    return -99; // remove after writing your code
+    if (t->left==NULL && t->right==NULL){
+        return depth;
+    }
+    else if (t->left && t->right) {
+        return (depth + (int_path_length(t->left,depth+1) + int_path_length(t->right,depth+1)));
+    }
+     // put your actual return value here when you write this function
+    else if (t->left){
+        return (depth + int_path_length(t->left,depth+1));
+    }
+    else if (t->right){
+        return (depth + int_path_length(t->right,depth+1));
+    }
 }
 
 /**
@@ -238,8 +251,10 @@ BinaryNode * BinarySearchTree::find( const string & x, BinaryNode *t ) const {
     if ( t == NULL )
         return NULL;
     else if ( x < t->element ) {
+    	LeftLinksFollowed++;
         return find( x, t->left );
     } else if ( t->element < x ) {
+    	RightLinksFollowed++;
         return find( x, t->right );
     } else
         return t;    // Match

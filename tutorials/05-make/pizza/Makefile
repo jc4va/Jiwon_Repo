@@ -1,3 +1,6 @@
+# Jiwon Cha (jc4va)
+# Lab section: 104
+
 CXX=clang++ $(CXXFLAGS)
 DEBUG=-Wall -g
 
